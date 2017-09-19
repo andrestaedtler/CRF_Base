@@ -1,5 +1,5 @@
 //
-//  main.swift
+//  basic_objects.CRFEdge.swift
 //  CRF Base
 //
 //  Created by Andre Staedtler on 19.09.17.
@@ -7,8 +7,3 @@
 //
 
 import Foundation
-
-print("Hello, World!")
-
-var graph = GraphCreator.createGraphRectangle()
-print(graph)

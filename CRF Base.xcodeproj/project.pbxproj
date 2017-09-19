@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		654D69E41F710597007A2C06 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D69E31F710597007A2C06 /* main.swift */; };
+		654D69EE1F710631007A2C06 /* CRFGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D69ED1F710631007A2C06 /* CRFGraph.swift */; };
+		654D69F01F7107DC007A2C06 /* CRFLabeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D69EF1F7107DC007A2C06 /* CRFLabeling.swift */; };
+		654D69F21F7107E6007A2C06 /* CRFNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D69F11F7107E6007A2C06 /* CRFNode.swift */; };
+		654D69F41F7107F5007A2C06 /* CRFEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D69F31F7107F5007A2C06 /* CRFEdge.swift */; };
+		654D69F71F7114C5007A2C06 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D69F61F7114C5007A2C06 /* Model.swift */; };
+		654D69F91F711630007A2C06 /* GraphCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D69F81F711630007A2C06 /* GraphCreator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +31,12 @@
 /* Begin PBXFileReference section */
 		654D69E01F710597007A2C06 /* CRF Base */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CRF Base"; sourceTree = BUILT_PRODUCTS_DIR; };
 		654D69E31F710597007A2C06 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		654D69ED1F710631007A2C06 /* CRFGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRFGraph.swift; sourceTree = "<group>"; };
+		654D69EF1F7107DC007A2C06 /* CRFLabeling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRFLabeling.swift; sourceTree = "<group>"; };
+		654D69F11F7107E6007A2C06 /* CRFNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRFNode.swift; sourceTree = "<group>"; };
+		654D69F31F7107F5007A2C06 /* CRFEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRFEdge.swift; sourceTree = "<group>"; };
+		654D69F61F7114C5007A2C06 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		654D69F81F711630007A2C06 /* GraphCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphCreator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +53,9 @@
 		654D69D71F710597007A2C06 = {
 			isa = PBXGroup;
 			children = (
+				654D69FA1F7120BF007A2C06 /* crf_algorithms */,
+				654D69F51F7114AD007A2C06 /* model */,
+				654D69EC1F710618007A2C06 /* basic_objects */,
 				654D69E21F710597007A2C06 /* CRF Base */,
 				654D69E11F710597007A2C06 /* Products */,
 			);
@@ -60,6 +75,33 @@
 				654D69E31F710597007A2C06 /* main.swift */,
 			);
 			path = "CRF Base";
+			sourceTree = "<group>";
+		};
+		654D69EC1F710618007A2C06 /* basic_objects */ = {
+			isa = PBXGroup;
+			children = (
+				654D69ED1F710631007A2C06 /* CRFGraph.swift */,
+				654D69EF1F7107DC007A2C06 /* CRFLabeling.swift */,
+				654D69F11F7107E6007A2C06 /* CRFNode.swift */,
+				654D69F31F7107F5007A2C06 /* CRFEdge.swift */,
+			);
+			name = basic_objects;
+			sourceTree = "<group>";
+		};
+		654D69F51F7114AD007A2C06 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				654D69F61F7114C5007A2C06 /* Model.swift */,
+				654D69F81F711630007A2C06 /* GraphCreator.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		654D69FA1F7120BF007A2C06 /* crf_algorithms */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = crf_algorithms;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +162,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				654D69F91F711630007A2C06 /* GraphCreator.swift in Sources */,
+				654D69F01F7107DC007A2C06 /* CRFLabeling.swift in Sources */,
+				654D69F21F7107E6007A2C06 /* CRFNode.swift in Sources */,
+				654D69EE1F710631007A2C06 /* CRFGraph.swift in Sources */,
+				654D69F71F7114C5007A2C06 /* Model.swift in Sources */,
+				654D69F41F7107F5007A2C06 /* CRFEdge.swift in Sources */,
 				654D69E41F710597007A2C06 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

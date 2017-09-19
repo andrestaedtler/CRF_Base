@@ -14,6 +14,8 @@
 		654D69F41F7107F5007A2C06 /* CRFEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D69F31F7107F5007A2C06 /* CRFEdge.swift */; };
 		654D69F71F7114C5007A2C06 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D69F61F7114C5007A2C06 /* Model.swift */; };
 		654D69F91F711630007A2C06 /* GraphCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D69F81F711630007A2C06 /* GraphCreator.swift */; };
+		654D69FE1F712C35007A2C06 /* MAPPredictionCRF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D69FD1F712C35007A2C06 /* MAPPredictionCRF.swift */; };
+		654D6A001F7149EC007A2C06 /* BrutforceCRF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654D69FF1F7149EC007A2C06 /* BrutforceCRF.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +39,8 @@
 		654D69F31F7107F5007A2C06 /* CRFEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRFEdge.swift; sourceTree = "<group>"; };
 		654D69F61F7114C5007A2C06 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		654D69F81F711630007A2C06 /* GraphCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphCreator.swift; sourceTree = "<group>"; };
+		654D69FD1F712C35007A2C06 /* MAPPredictionCRF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAPPredictionCRF.swift; sourceTree = "<group>"; };
+		654D69FF1F7149EC007A2C06 /* BrutforceCRF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrutforceCRF.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 		654D69FA1F7120BF007A2C06 /* crf_algorithms */ = {
 			isa = PBXGroup;
 			children = (
+				654D69FD1F712C35007A2C06 /* MAPPredictionCRF.swift */,
+				654D69FF1F7149EC007A2C06 /* BrutforceCRF.swift */,
 			);
 			name = crf_algorithms;
 			sourceTree = "<group>";
@@ -165,8 +171,10 @@
 				654D69F91F711630007A2C06 /* GraphCreator.swift in Sources */,
 				654D69F01F7107DC007A2C06 /* CRFLabeling.swift in Sources */,
 				654D69F21F7107E6007A2C06 /* CRFNode.swift in Sources */,
+				654D69FE1F712C35007A2C06 /* MAPPredictionCRF.swift in Sources */,
 				654D69EE1F710631007A2C06 /* CRFGraph.swift in Sources */,
 				654D69F71F7114C5007A2C06 /* Model.swift in Sources */,
+				654D6A001F7149EC007A2C06 /* BrutforceCRF.swift in Sources */,
 				654D69F41F7107F5007A2C06 /* CRFEdge.swift in Sources */,
 				654D69E41F710597007A2C06 /* main.swift in Sources */,
 			);

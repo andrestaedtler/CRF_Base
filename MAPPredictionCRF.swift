@@ -19,6 +19,7 @@ class MAPPredictionCRF<T> {
     var numberStates: Int!
     //var debug = false
     
+    
     func calcMAP(queue: [CRFNode<T>], numberStates: Int) -> CRFLabeling<T> {
         outsideEdges = [:]
         for node in queue{
@@ -67,6 +68,7 @@ class MAPPredictionCRF<T> {
         
     }
     
+    
     //calc score of new labeling
     func calcLabelingScore(_ borderNode: CRFNode<T>) {
         var possiblePredecessors: [CRFLabeling<T>] = []
@@ -104,6 +106,7 @@ class MAPPredictionCRF<T> {
         }//end of for
     }
     
+    
     func calcLabelingScoreNodeNotInBorder(_ node: CRFNode<T>){
         //fill nextLabeling with each possible labeling for borderNode
         nextLabelings.removeAll()
@@ -128,6 +131,7 @@ class MAPPredictionCRF<T> {
         }
         
     }
+    
     
     func calcScore(_ borderNode: CRFNode<T>, _ possiblePredecessor: [CRFLabeling<T>],
                    _ mapNext: [CRFNode<T>: Int], _ labelNext: CRFLabeling<T>){
@@ -163,13 +167,6 @@ class MAPPredictionCRF<T> {
         labelNext.score = max
     
         //add inner nodes to new labeling
-        if maxPred != nil {
-            for key in (maxPred?.labeling.keys)! {
-                if !(labelNext.labeling.keys.contains(key)){
-                    
-                }
-            }
-        }
         if let maxPred = maxPred {
             for key in maxPred.labeling.keys {
                 if !labelNext.labeling.keys.contains(key) {
@@ -180,7 +177,6 @@ class MAPPredictionCRF<T> {
         
         
     }
-    
     
     
     func createLabeling() {
@@ -199,6 +195,7 @@ class MAPPredictionCRF<T> {
         }
         
     }
+    
     
     func calcCombinations(_ n: Int, _ arr: [Int]) -> [[Int]] {
         var list:[[Int]] = []
@@ -226,6 +223,7 @@ class MAPPredictionCRF<T> {
         return list
     }
     
+    
     func updateOutsideEdges(_ node: CRFNode<T>) {
         for edge in node.edges{
             let neighbor = node.getNeighbor(of: edge)
@@ -237,6 +235,7 @@ class MAPPredictionCRF<T> {
             }
         }
     }
+    
     
     func updateBorderToInner() {
         let borderCopy = border!

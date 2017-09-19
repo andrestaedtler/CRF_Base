@@ -13,7 +13,6 @@ import Foundation
 class BrutforceCRF<T> {
     
     func brutforce(graph: CRFGraph<T>, numberLabels: Int) {
-        
         var labels:[Int] = []
         for l in 0..<numberLabels {
             labels.append(l)

@@ -19,7 +19,7 @@ class BrutforceCRF<T> {
         }
         
         let labelCombinations = calcCombinations(graph.nodes.count, labels)
-        print(labelCombinations.count)
+        print("\(labelCombinations.count) possible labelcombinations")
         var maxScore = 0.0
         var maxLabels:[String] = []
         for labelComb in labelCombinations {
@@ -49,17 +49,10 @@ class BrutforceCRF<T> {
     
     
     func calcCombinations(_ n: Int, _ arr: [Int]) -> [[Int]] {
-        var list:[[Int]] = []
         
         let numArrays = Int(pow(Double(arr.count), Double(n)))
-        //create each array
-        for _ in 0..<numArrays {
-            var emptyArr: [Int] = []
-            for _ in 0..<n {
-                emptyArr.append(0)
-            }
-            list.append(emptyArr)
-        }
+        var list = Array(repeating: Array(repeating: 0, count: n), count: numArrays)
+        
         //fill up the array
         for j in 0..<n{
             let period = Int(pow(Double(arr.count), Double(n - j - 1)))

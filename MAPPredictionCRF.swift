@@ -16,11 +16,11 @@ class MAPPredictionCRF<T> {
     var currentLabelings, nextLabelings: [CRFLabeling<T>]!
     
     var outsideEdges: [CRFNode<T> : [CRFEdge<T>]]!
-    var numberStates: Int!
+    var numberLabels: Int!
     //var debug = false
     
     
-    func calcMAP(queue: [CRFNode<T>], numberStates: Int) -> CRFLabeling<T> {
+    func calcMAP(queue: [CRFNode<T>], numberLabels: Int) -> CRFLabeling<T> {
         outsideEdges = [:]
         for node in queue{
             outsideEdges[node] = [CRFEdge<T>]()
@@ -33,7 +33,7 @@ class MAPPredictionCRF<T> {
         currentLabelings = []
         nextLabelings = []
         
-        self.numberStates = numberStates
+        self.numberLabels = numberLabels
         
         for _ in 0..<queue.count{
             
@@ -76,7 +76,7 @@ class MAPPredictionCRF<T> {
         for labelNext in nextLabelings {
             
             //find all possible predecessors
-            //a label is a predecessor iff all the nodes which are in 
+            //a label is a predecessor iff all the nodes which are in
             //both labelings have the same label
             var mapNext = labelNext.labeling
             
@@ -99,7 +99,7 @@ class MAPPredictionCRF<T> {
                     possiblePredecessors.append(labelCurr)
                 }
             }
-            //calculate the score 
+            //calculate the score
             calcScore(borderNode, possiblePredecessors, mapNext, labelNext)
             possiblePredecessors.removeAll()
             
@@ -110,7 +110,7 @@ class MAPPredictionCRF<T> {
     func calcLabelingScoreNodeNotInBorder(_ node: CRFNode<T>){
         //fill nextLabeling with each possible labeling for borderNode
         nextLabelings.removeAll()
-        for i in 0..<numberStates{
+        for i in 0..<numberLabels{
             let labeling = CRFLabeling<T>()
             labeling.addLabeling(node: node, label: i)
             nextLabelings.append(labeling)
@@ -165,7 +165,7 @@ class MAPPredictionCRF<T> {
             
         }
         labelNext.score = max
-    
+        
         //add inner nodes to new labeling
         if let maxPred = maxPred {
             for key in maxPred.labeling.keys {
@@ -181,7 +181,7 @@ class MAPPredictionCRF<T> {
     
     func createLabeling() {
         var states: [Int] = []
-        for i in 0..<numberStates{
+        for i in 0..<numberLabels{
             states.append(i)
         }
         let combinations = calcCombinations(border.count, states)
@@ -198,17 +198,10 @@ class MAPPredictionCRF<T> {
     
     
     func calcCombinations(_ n: Int, _ arr: [Int]) -> [[Int]] {
-        var list:[[Int]] = []
         
         let numArrays = Int(pow(Double(arr.count), Double(n)))
-        //create each array
-        for _ in 0..<numArrays {
-            var emptyArr: [Int] = []
-            for _ in 0..<n {
-                emptyArr.append(0)
-            }
-            list.append(emptyArr)
-        }
+        var list = Array(repeating: Array(repeating: 0, count: n), count: numArrays)
+        
         //fill up the array
         for j in 0..<n{
             let period = Int(pow(Double(arr.count), Double(n - j - 1)))
@@ -229,8 +222,8 @@ class MAPPredictionCRF<T> {
             let neighbor = node.getNeighbor(of: edge)
             
             if let neighbor = neighbor{
-                if let index = outsideEdges[neighbor]?.index(of: edge){
-                    outsideEdges[neighbor]?.remove(at: index)
+                if let index = outsideEdges[neighbor]?.index(of: edge), var edges = outsideEdges[neighbor]{
+                    edges.remove(at: index)
                 }
             }
         }
@@ -238,17 +231,14 @@ class MAPPredictionCRF<T> {
     
     
     func updateBorderToInner() {
-        let borderCopy = border!
-        for node in borderCopy{
-            if outsideEdges[node]?.count == 0 {
+        for node in border{
+            if let edgesOfNode = outsideEdges[node], edgesOfNode.count == 0{
                 inner.append(node)
-                if let index = border.index(of: node){
-                    border.remove(at: index)
-                }
             }
         }
+        border = border.filter{!inner.contains($0)}
     }
-
+    
     
     
     

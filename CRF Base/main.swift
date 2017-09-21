@@ -9,9 +9,9 @@
 import Foundation
 
 
-var graph = GraphCreator.createGraphRectangle()
+var graph = GraphCreator.createGraphGrid2d()
 let mapPrediction = MAPPredictionCRF<Person>()
-let label = mapPrediction.calcMAP(queue: graph.nodes, numberStates: 2)
+let label = mapPrediction.calcMAP(queue: graph.nodes, numberLabels: 2)
 var resultArray: [Int] = []
 for _ in 0..<label.labeling.count {
     resultArray.append(-1)

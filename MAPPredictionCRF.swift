@@ -9,7 +9,7 @@
 import Foundation
 
 //this class finds the best labeling given observation -> exponential run time
-// for big graphes -> cap the borderlist to a certain amount of nodes
+// for big graphs -> cap the borderlist to a certain amount of nodes
 class MAPPredictionCRF<T> {
     
     var inner, outer, border: [CRFNode<T>]!
